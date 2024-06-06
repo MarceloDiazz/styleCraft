@@ -1,0 +1,90 @@
+
+<script lang="ts">
+const canvas = document.getElementById('slider') as HTMLCanvasElement;
+const ctx = canvas.getContext('2d')!;
+const val = document.getElementById('sValue') as HTMLElement;
+const x = canvas.width / 2;
+const y = canvas.height / 2;
+const r = 80;
+let a = Math.PI / 4;
+
+drawFn();
+valFn();
+
+canvas.addEventListener('mousedown', dragFn);
+canvas.addEventListener('mousemove', drag);
+canvas.addEventListener('mouseup', endFn);
+
+function drawFn() {
+    ctx?.clearRect(0, 0, canvas.width, canvas.height);
+    ctx?.beginPath();
+    ctx?.arc(x, y, r, 0, Math.PI * 2);
+    ctx.strokeStyle = 'green';
+    ctx.lineWidth = 20;
+    ctx?.stroke();
+    ctx?.beginPath();
+    const handleX = x + Math.cos(a) * r;
+    const handleY = y + Math.sin(a) * r;
+    ctx?.arc(handleX, handleY, 8, 0, Math.PI * 2);
+    ctx.fillStyle = 'red';
+    ctx?.fill();
+}
+
+function valFn() {
+    const value = Math.round(a * 180 / Math.PI);
+    val.textContent = `Value: ${value}`;
+}
+
+let temp = false;
+
+function dragFn(e: MouseEvent) {
+    temp = true;
+    drag(e);
+}
+
+function drag(e: MouseEvent) {
+    if (!temp) return;
+    const rect = canvas.getBoundingClientRect();
+    a = Math.atan2(e.clientY - rect.top - y, e.clientX - rect.left - x);
+    drawFn();
+    valFn();
+}
+
+function endFn() {
+    temp = false;
+}
+
+
+</script>
+
+
+
+   <style>
+    #sContainer {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            margin: auto;
+        }
+
+        #sValue {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+        }
+   </style>
+
+
+
+
+<h3>
+    Creating round slider using Canvas
+</h3>
+<div id="sContainer">
+    <canvas id="slider" width="200" 
+        height="200"></canvas>
+    <div id="sValue"></div>
+</div>
