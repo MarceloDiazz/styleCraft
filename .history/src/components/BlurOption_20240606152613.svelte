@@ -50,7 +50,6 @@
       <form class="max-w-sm">
         <input
           on:keyup={(event) => {
-            console.log("EE");
             let range = Number(event.currentTarget.value);
             rangeStrength.set(range);
           }}

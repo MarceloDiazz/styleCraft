@@ -12,6 +12,7 @@
 
   // INSTANCIA PARA LA NUEVA VERSION DE LA IMAGEN
 
+
   onMount(() => {
     // #inicializaciamos el id, el mismo que el form
     const dropzone = new Dropzone("#dropzone", {
@@ -36,6 +37,7 @@
 
       saveButtonEnabled.set(true);
       imageStatus.set(ImageStatus.DONE);
+
     });
 
     // No esta hecho pero pensar para informarle al usuario
@@ -43,6 +45,8 @@
       saveButtonEnabled.set(false);
     });
   });
+
+
 </script>
 
 <!-- action: hace el POST para que se suba la imagen -->

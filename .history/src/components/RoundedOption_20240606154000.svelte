@@ -36,7 +36,7 @@
       >
       <div class="flex items-center gap-2">
         <div>
-          <img src={conerUpLeft} alt="corner" />
+            <img src={conerUpLeft} alt="corner"/>
         </div>
         <form class="max-w-sm">
           <input

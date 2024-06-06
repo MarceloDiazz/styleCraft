@@ -34,10 +34,7 @@
   import RotateOption from "./components/RotateOption.svelte";
   import AddBackgroundOption from "./components/AddBackgroundOption.svelte";
   import { byAngle } from "@cloudinary/url-gen/actions/rotate";
-  import {
-    predominant,
-    generativeFill,
-  } from "@cloudinary/url-gen/qualifiers/background";
+  import { predominant, generativeFill } from "@cloudinary/url-gen/qualifiers/background";
   import { ImageStatus } from "../types.d";
   let processingImage = true;
   let tries = 0;
@@ -56,6 +53,8 @@
         };
       }, 500);
     }
+
+
   }
   const cloudinary = new Cloudinary({
     cloud: {
@@ -121,59 +120,53 @@
     }
 
     if ($buttonSelected.buttonBackground) {
-      let modeImage =
-        $selectModeBackground === "predominant"
-          ? predominant()
-          : generativeFill();
-      if ($selectTypeImageBackground === "noTransparent") {
+      let modeImage= $selectModeBackground === "predominant" ? predominant() : generativeFill()
+      if($selectTypeImageBackground === "noTransparent"){
         const imageBackground = cloudinary
           .image($tokenImage)
           .resize(pad().width(1800).height(1800).background(modeImage));
-        modifiedImage.set(imageBackground.toURL());
-      } else {
+          modifiedImage.set(imageBackground.toURL());
+      } else{
         const imageBackgroundTransparent = cloudinary
           .image($tokenImage)
-          .backgroundColor($selectColorBackground);
-        modifiedImage.set(imageBackgroundTransparent.toURL());
+          .backgroundColor($selectColorBackground)
+          modifiedImage.set(imageBackgroundTransparent.toURL());
       }
     }
-    readyImage.set(true);
+    readyImage.set(true)
   };
 </script>
 
 <!-- on: como el onclick  -->
 <div class="">
   {#if $readyImage === false}
-    <img src={$originalImage} alt="Imagen original subida por el usuario" />
+<img  src={$originalImage} alt="Imagen original subida por el usuario" />
+{:else}
+<two-up>
+  <img  src={$originalImage} alt="Imagen original subida por el usuario" />
+  {#if processingImage}
+    <div class="flex flex-col justify-center items-center">
+      <div class="lds-ripple">
+        <div />
+        <div />
+      </div>
+      <p class="text-center mt-4 font-semibold">Processing image...</p>
+    </div>
   {:else}
-    <two-up>
-      <img src={$originalImage} alt="Imagen original subida por el usuario" />
-      {#if processingImage}
-        <div class="flex flex-col justify-center items-center">
-          <div class="lds-ripple">
-            <div />
-            <div />
-          </div>
-          <p class="text-center mt-4 font-semibold">Processing image...</p>
-        </div>
-      {:else}
-        <img
-          src={$modifiedImage}
-          alt="Imagen sin fondo subida por el usuario"
-        />
-      {/if}
-    </two-up>
-
-    {#if $readyImage}
-      <a
-        download
-        href={$modifiedImage}
-        class="block text-center bg-blue-500 text-lg hover:bg-blue-700 w-full font-bold text-white rounded-full px-4 py-2 mt-10"
-      >
-        Download image
-      </a>
-    {/if}
+    <img  src={$modifiedImage} alt="Imagen sin fondo subida por el usuario" />
   {/if}
+</two-up>
+
+{#if $readyImage}
+<a
+  download
+  href={$modifiedImage}
+  class="block text-center bg-blue-500 text-lg hover:bg-blue-700 w-full font-bold text-white rounded-full px-4 py-2 mt-10"
+>
+  Download image
+</a>
+{/if}
+{/if}
 </div>
 {#if $buttonSelected.buttonBlur}
   <BlurOption />
@@ -187,22 +180,24 @@
 {#if $buttonSelected.buttonBackground}
   <AddBackgroundOption />
 {/if}
-{#if $saveButtonEnabled && Object.values($buttonSelected).some((el) => el === true)}
-  <div class="mt-5">
-    <button
-      on:click={() => {
-        transformImage();
-      }}
-      type="button"
-      class="text-white bg-[#009c8c] hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 w-full max-w-32"
-      >Transform</button
-    >
-  </div>
+{#if $saveButtonEnabled && Object.values($buttonSelected).some((el)=> el === true)}
+<div class="mt-5">
+  <button
+    on:click={() => {
+      transformImage();
+    }}
+    type="button"
+    class="text-white bg-[#009c8c] hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 w-full max-w-32"
+    >Transform</button
+  >
+</div>
 {/if}
-{#if Object.values($buttonSelected).every((el) => el === false)}
-  <div class="mt-10 text-center">
-    <span class="text-lg font-semibold">
-      Select the effect for your image!</span
-    >
-  </div>
+{#if Object.values($buttonSelected).every((el)=> el === false)}
+<div class="mt-10 text-center">
+  <span class="text-lg font-semibold">
+    Select the effect for your image!</span>
+</div>
 {/if}
+
+
+

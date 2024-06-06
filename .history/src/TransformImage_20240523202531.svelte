@@ -27,10 +27,7 @@
   import { autoGravity } from "@cloudinary/url-gen/qualifiers/gravity";
   import { byRadius, max } from "@cloudinary/url-gen/actions/roundCorners";
   import { byAngle } from "@cloudinary/url-gen/actions/rotate";
-  import {
-    predominant,
-    generativeFill,
-  } from "@cloudinary/url-gen/qualifiers/background";
+  import { predominant, generativeFill } from "@cloudinary/url-gen/qualifiers/background";
   const cloudinary = new Cloudinary({
     cloud: {
       cloudName: "damqc7a4z",
@@ -95,22 +92,20 @@
     }
 
     if ($buttonSelected.buttonBackground) {
-      let modeImage =
-        $selectModeBackground === "predominant"
-          ? predominant()
-          : generativeFill();
-      if ($selectTypeImageBackground === "noTransparent") {
+      let modeImage= $selectModeBackground === "predominant" ? predominant() : generativeFill()
+      if($selectTypeImageBackground === "noTransparent"){
         const imageBackground = cloudinary
           .image($tokenImage)
           .resize(pad().width(1800).height(1800).background(modeImage));
-        modifiedImage.set(imageBackground.toURL());
-      } else {
+          modifiedImage.set(imageBackground.toURL());
+      } else{
         const imageBackgroundTransparent = cloudinary
           .image($tokenImage)
-          .backgroundColor($selectColorBackground);
-        modifiedImage.set(imageBackgroundTransparent.toURL());
+          .backgroundColor($selectColorBackground)
+          modifiedImage.set(imageBackgroundTransparent.toURL());
       }
     }
     imageStatus.set(ImageStatus.DONE);
   };
+  
 </script>
