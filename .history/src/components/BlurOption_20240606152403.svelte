@@ -1,6 +1,19 @@
 <script lang="ts">
-  import { rangeStrength, selectedBlurOption } from "../store";
-  import { Cloudinary } from "@cloudinary/url-gen";
+  import { writable } from "svelte/store";
+  import {
+    rangeStrength,
+    selectedBlurOption,
+  } from "../store";
+  import { Cloudinary} from "@cloudinary/url-gen";
+
+  const cloudinary = new Cloudinary({
+    cloud: {
+      cloudName: "damqc7a4z",
+    },
+    url: {
+      secure: true,
+    },
+  });
 </script>
 
 <div class="flex gap-10 mt-10">
@@ -9,7 +22,7 @@
     <label
       for="modeBlur"
       class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-      >Mode:</label
+      >Modo:</label
     >
     <select
       on:click={(event) => {
@@ -19,14 +32,14 @@
       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
     >
       <option value="e_blur:">Regular</option>
-      <option value="e_blur_faces:">Face</option>
+      <option value="e_blur_faces:">Rostro</option>
     </select>
   </form>
   <div class="flex-1">
     <label
       for="steps-range"
       class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-      >Strength:</label
+      >Fuerza:</label
     >
     <div class="flex flex-col gap-3">
       <!-- Step range -->
@@ -64,3 +77,11 @@
     </div>
   </div>
 </div>
+<!-- <button
+  on:click={() => {
+    blurTransform();
+  }}
+  type="button"
+  class="text-white bg-[#009c8c] hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 w-full max-w-32"
+  >Transformar</button
+> -->

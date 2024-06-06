@@ -48,7 +48,7 @@
                 selectModeBackground.set("generativeFill")
             }}
           class={`border rounded-xl p-3  ${$selectModeBackground === "generativeFill" ? "border-blue-500" : "border-gray-200"}`}
-          >Generative fill</button
+          >Fill generative</button
         >
       </div>
     </div>

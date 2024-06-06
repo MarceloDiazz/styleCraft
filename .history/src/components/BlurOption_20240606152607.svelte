@@ -1,6 +1,9 @@
 <script lang="ts">
-  import { rangeStrength, selectedBlurOption } from "../store";
-  import { Cloudinary } from "@cloudinary/url-gen";
+  import {
+    rangeStrength,
+    selectedBlurOption,
+  } from "../store";
+  import { Cloudinary} from "@cloudinary/url-gen";
 </script>
 
 <div class="flex gap-10 mt-10">
@@ -64,3 +67,11 @@
     </div>
   </div>
 </div>
+<!-- <button
+  on:click={() => {
+    blurTransform();
+  }}
+  type="button"
+  class="text-white bg-[#009c8c] hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 w-full max-w-32"
+  >Transformar</button
+> -->

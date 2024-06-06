@@ -7,7 +7,7 @@
     <label
       for="modeBlur"
       class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-      >Type image:</label
+      >Tipo de imágen:</label
     >
     <div class="flex flex-col gap-5 mt-5">
       <button
@@ -15,14 +15,14 @@
           selectTypeImageBackground.set("noTransparent");
         }}
         class={`border rounded-xl p-3 ${$selectTypeImageBackground === "noTransparent" ? "border-blue-400" : "border-gray-200"}`}
-        >With Backround</button
+        >Con fondo</button
       >
       <button
         on:click={() => {
           selectTypeImageBackground.set("transparent");
         }}
         class={`border rounded-xl p-3 ${$selectTypeImageBackground === "transparent" ? "border-blue-400" : "border-gray-200"}`}
-        >Without Backround</button
+        >Sin fondo</button
       >
     </div>
   </div>
@@ -31,7 +31,7 @@
       <label
         for="modeBlur"
         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-        >Mode:</label
+        >Modo:</label
       >
       <div class="flex flex-col gap-5 mt-5">
         <!-- predominant -->
@@ -40,7 +40,7 @@
                 selectModeBackground.set("predominant")
             }}
           class={`border rounded-xl p-3  ${$selectModeBackground === "predominant" ? "border-blue-500" : "border-gray-200"}`}
-          >Predominant color</button
+          >Predominante color</button
         >
         <!-- generativeFill -->
         <button
@@ -48,7 +48,7 @@
                 selectModeBackground.set("generativeFill")
             }}
           class={`border rounded-xl p-3  ${$selectModeBackground === "generativeFill" ? "border-blue-500" : "border-gray-200"}`}
-          >Generative fill</button
+          >Relleno generativo</button
         >
       </div>
     </div>

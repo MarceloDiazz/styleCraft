@@ -1,6 +1,9 @@
 <script lang="ts">
-  import { rangeStrength, selectedBlurOption } from "../store";
-  import { Cloudinary } from "@cloudinary/url-gen";
+  import {
+    rangeStrength,
+    selectedBlurOption,
+  } from "../store";
+  import { Cloudinary} from "@cloudinary/url-gen";
 </script>
 
 <div class="flex gap-10 mt-10">

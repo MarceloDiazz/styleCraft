@@ -13,7 +13,7 @@
     <label
       for="modeBlur"
       class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-      >Mode:</label
+      >Modo:</label
     >
     <select
       on:click={(event) => {
