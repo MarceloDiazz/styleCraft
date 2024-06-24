@@ -144,7 +144,7 @@
 <!-- on: como el onclick  -->
 <div class="">
   {#if $readyImage === false}
-    <img src={$originalImage} alt="Imagen original subida por el usuario" />
+    <img src={$originalImage} alt="Imagen original subida por el usuario" class="max-lg:max-h-80 max-h-96"/>
   {:else}
     <two-up>
       <img src={$originalImage} alt="Imagen original subida por el usuario" />
