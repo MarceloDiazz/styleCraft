@@ -6,7 +6,7 @@
   } from "../store";
 </script>
 
-<div class="mt-10 flex justify-around gap-20">
+<div class="mt-5 flex justify-around gap-20">
   <div>
     <label
       for="modeBlur"

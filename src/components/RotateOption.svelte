@@ -9,7 +9,7 @@
   }
 </script>
 
-<div class="flex justify-center items-center gap-12 mt-10">
+<div class="flex justify-center items-center gap-12 mt-5">
   <div>
     <input
       type="range"

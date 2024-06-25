@@ -8,7 +8,7 @@
   let customValues = [0, 0, 0, 0];
 </script>
 
-<div class="flex gap-10 mt-10 justify-center">
+<div class="flex gap-10 mt-5 justify-center">
   <form>
     <label
       for="modeBlur"

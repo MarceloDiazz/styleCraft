@@ -2,7 +2,7 @@
   import { rangeStrength, selectedBlurOption } from "../store";
 </script>
 
-<div class="flex gap-10 mt-10">
+<div class="flex gap-10 mt-5">
   <!-- Select -->
   <form class="flex-1">
     <label
