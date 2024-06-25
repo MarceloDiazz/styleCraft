@@ -142,12 +142,12 @@
 </script>
 
 <!-- on: como el onclick  -->
-<div class="">
+<div>
   {#if $readyImage === false}
-    <img src={$originalImage} alt="Imagen original subida por el usuario" class="max-lg:max-h-80 max-h-96"/>
+    <img src={$originalImage} alt="Imagen original subida por el usuario" class="max-lg:max-h-80 max-h-96 w-full object-contain"/>
   {:else}
     <two-up>
-      <img src={$originalImage} alt="Imagen original subida por el usuario" />
+      <img src={$originalImage} alt="Imagen original subida por el usuario"  class="max-lg:max-h-80 max-h-[500px] w-full object-contain"/>
       {#if processingImage}
         <div class="flex flex-col justify-center items-center">
           <div class="lds-ripple">
@@ -158,6 +158,7 @@
         </div>
       {:else}
         <img
+        class="max-lg:max-h-80 max-h-[500px] w-full object-contain"
           src={$modifiedImage}
           alt="Imagen sin fondo subida por el usuario"
         />
@@ -168,7 +169,7 @@
       <a
         download
         href={$modifiedImage}
-        class="block text-center bg-blue-500 text-lg hover:bg-blue-700 w-full font-bold text-white rounded-full px-4 py-2 mt-10"
+        class="block text-center bg-blue-500 text-lg hover:bg-blue-700 w-full font-bold text-white rounded-md px-4 py-2 mt-5 "
       >
         Download image
       </a>
@@ -188,7 +189,7 @@
   <AddBackgroundOption />
 {/if}
 {#if $saveButtonEnabled && Object.values($buttonSelected).some((el) => el === true)}
-  <div class="mt-5">
+  <div class="mt-3">
     <button
       on:click={() => {
         transformImage();
