@@ -3,9 +3,8 @@
   import logo from "./assets/img/origami.png";
   import demo from "./assets/img/demo.jpg";
 
-  import CloudinaryLogo from "./CloudinaryLogo.svelte";
   import StepUpload from "./StepUpload.svelte";
-  import { imageStatus, buttonSelected } from "./store";
+  import { imageStatus} from "./store";
   import StepEdit from "./StepEdit.svelte";
   import Sidebar from "./components/Sidebar.svelte";
 </script>
