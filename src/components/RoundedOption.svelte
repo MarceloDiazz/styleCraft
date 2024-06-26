@@ -62,7 +62,7 @@
       <label
         for="modeBlur"
         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-        >Custom:</label
+        >Custom: Pixels</label
       >
       <div class="grid grid-cols-2 gap-1">
         <div class="flex items-center">
@@ -90,12 +90,7 @@
           </form>
         </div>
         <div class="flex items-center">
-          <div>
-            <!-- svelte-ignore a11y-label-has-associated-control -->
-            <label>
-              <img src={cornerUpRight} alt="corner" />
-            </label>
-          </div>
+        
           <form class="max-w-sm">
             <input
               on:keyup={(event) => {
@@ -112,7 +107,12 @@
               required
             />
           </form>
-          <span class="ml-1">px</span>
+          <div>
+            <!-- svelte-ignore a11y-label-has-associated-control -->
+            <label>
+              <img src={cornerUpRight} alt="corner" />
+            </label>
+          </div>
         </div>
         <div class="flex items-center">
           <div>
@@ -139,12 +139,7 @@
           </form>
         </div>
         <div class="flex items-center">
-          <div>
-            <!-- svelte-ignore a11y-label-has-associated-control -->
-            <label>
-              <img src={cornerDownRight} alt="corner" />
-            </label>
-          </div>
+        
           <form class="max-w-sm">
             <input
               on:keyup={(event) => {
@@ -161,7 +156,13 @@
               required
             />
           </form>
-          <span class="ml-1">px</span>
+          <div>
+            <!-- svelte-ignore a11y-label-has-associated-control -->
+            <label>
+              <img src={cornerDownRight} alt="corner" />
+            </label>
+          </div>
+          <!-- <span class="ml-1">px</span> -->
         </div>
       </div>
     </div>
