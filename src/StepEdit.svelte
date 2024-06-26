@@ -7,7 +7,6 @@
     blur,
   } from "@cloudinary/url-gen/actions/effect";
   import {
-    imageStatus,
     modifiedImage,
     originalImage,
     buttonSelected,
@@ -38,7 +37,7 @@
     predominant,
     generativeFill,
   } from "@cloudinary/url-gen/qualifiers/background";
-  import { ImageStatus } from "../types.d";
+  import DownloadImage from "./components/DownloadImage.svelte";
   let processingImage = true;
   let tries = 0;
   let intervalId = 0;
@@ -166,13 +165,7 @@
     </two-up>
 
     {#if $readyImage}
-      <a
-        download
-        href={$modifiedImage}
-        class="block text-center bg-blue-500 text-lg hover:bg-blue-700 w-full font-bold text-white rounded-md px-4 py-2 mt-5 "
-      >
-        Download image
-      </a>
+     <DownloadImage />
     {/if}
   {/if}
 </div>
